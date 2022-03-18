@@ -1,2 +1,2 @@
-# react-weathera-app
+# react-weather-app
 Weather app using React

@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.weather-wrapper .heading{
+    background-color: #E9ECEF;
+}

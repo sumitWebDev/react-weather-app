@@ -6,3 +6,7 @@
 .weather-wrapper .heading{
     background-color: #E9ECEF;
 }
+
+i::before{
+    font-size: 50px;
+}

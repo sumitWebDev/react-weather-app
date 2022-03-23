@@ -1,35 +1,42 @@
 const products = [
     {
       id: 1,
-      name: 'Earthen Bottle',
+      day: 'Monday',
       href: '#',
-      price: '$48',
-      imageSrc: <i className="wi wi-day-sunny"></i>,
-      imageAlt: 'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
+      time: 'March 1st, 1:00pm',
+      imageSrc: 'wi-day-sunny',
+      temp: '35F   ',
+      conditions: 'Clear Sky', 
     },
     {
       id: 2,
-      name: 'Nomad Tumbler',
+      day: 'Tuesday',
       href: '#',
-      price: '$35',
-      imageSrc: <i className="wi wi-day-cloudy"></i>,
-      imageAlt: 'Olive drab green insulated bottle with flared screw lid and flat top.',
+      time: 'March 1st, 1:00pm',
+      imageSrc: 'wi wi-day-cloudy',
+      temp: '35F',
+      conditions: 'Clear Sky', 
+
     },
     {
       id: 3,
-      name: 'Focus Paper Refill',
+      day: 'Wednesday',
       href: '#',
-      price: '$89',
-      imageSrc: <i className="wi wi-day-lightning"></i>,
-      imageAlt: 'Person using a pen to cross a task off a productivity paper card.',
+      time: 'March 1st, 1:00pm',
+      imageSrc: 'wi-day-lightning',
+      temp: '35F',
+      conditions: 'Clear Sky',  
+
     },
     {
       id: 4,
-      name: 'Machined Mechanical Pencil',
+      day: 'Thursday',
       href: '#',
-      price: '$35',
-      imageSrc: <i className="wi wi-day-windy"></i>,
-      imageAlt: 'Hand holding black machined steel mechanical pencil with brass tip and top.',
+      time: 'March 1st, 1:00pm',
+      imageSrc: 'wi-day-windy',
+      temp: '35F',
+      conditions: 'Clear Sky', 
+
     },
     // More products...
   ]
@@ -43,16 +50,15 @@ const products = [
           <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
             {products.map((product) => (
               <a key={product.id} href={product.href} className="group">
-                <div className="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
-                  {/* <img
-                    src={product.imageSrc}
-                    alt={product.imageAlt}
-                    className="w-full h-full object-center object-cover group-hover:opacity-75"
-                  /> */}
-                  {product.imageSrc}
+                <div className="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8 text-center">
+                 <h3 className="mt-4 text-sm text-gray-700">{product.day}</h3>
+                 <p className="mt-1 text-lg font-medium text-gray-900">{product.time}</p>
+                  <i className= {`wi ${product.imageSrc}`}></i>
+                  <p className="mt-1 text-lg font-medium text-gray-900">{product.temp}</p>
+                  <p className="mt-1 text-lg font-medium text-gray-900">{product.conditions}</p>
                 </div>
-                <h3 className="mt-4 text-sm text-gray-700">{product.name}</h3>
-                <p className="mt-1 text-lg font-medium text-gray-900">{product.price}</p>
+                
+                
               </a>
             ))}
           </div>

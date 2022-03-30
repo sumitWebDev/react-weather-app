@@ -11,7 +11,6 @@ export default function Example() {
     "Saturday",
     "Sunday",
   ];
-  const [cityName, setCityName] = useState();
   const [weatherConditions, setweatherConditions] = useState();
   let count =0;
   useEffect(() => {
@@ -20,7 +19,6 @@ export default function Example() {
         "https://api.openweathermap.org/data/2.5/onecall?lat=35&lon=139&exclude=hourly,minutely&appid=7fa8ec92190927efb89d316589df0a71&unit=metric"
       )
       .then((response) => {
-        //setCityName(`${response.data.city.name},${response.data.city.country}`);
         let weatherConditions = response.data.daily.filter((date) => {          
           console.log(count);
           if(count < 5){
@@ -37,7 +35,6 @@ export default function Example() {
   let showData = "";
   if (weatherConditions) {
     showData = weatherConditions.map((weather) => {
-      //console.log(weather);
       return (
         <a key={weather.dt} href="#" className="group">
           <div className="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8 text-center">
@@ -64,7 +61,7 @@ export default function Example() {
     <div className="bg-white">
       <div className="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
         <h2 className="sr-only">Weather Conditions</h2>
-        <p>{cityName}</p>
+        <p></p>
         <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
           {showData}
         </div>

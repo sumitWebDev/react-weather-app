@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import dict from "../dict";
+
 export default function Example() {
   var day = [
     "Monday",

@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import dict from "../dict";
+import GeoLocations from "./geolocations";
 
 export default function Example() {
   var day = [
@@ -13,6 +14,7 @@ export default function Example() {
     "Sunday",
   ];
   const [weatherConditions, setweatherConditions] = useState();
+
   let count =0;
   useEffect(() => {
     axios
@@ -20,8 +22,7 @@ export default function Example() {
         "https://api.openweathermap.org/data/2.5/onecall?lat=35&lon=139&exclude=hourly,minutely&appid=7fa8ec92190927efb89d316589df0a71&units=metric"
       )
       .then((response) => {
-        let weatherConditions = response.data.daily.filter((date) => {          
-          console.log(count);
+        let weatherConditions = response.data.daily.filter((date) => {
           if(count < 5){
             count ++;
             return (
@@ -62,7 +63,7 @@ export default function Example() {
     <div className="bg-white">
       <div className="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
         <h2 className="sr-only">Weather Conditions</h2>
-        <p></p>
+        <GeoLocations />
         <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
           {showData}
         </div>

@@ -17,7 +17,7 @@ export default function Example() {
   useEffect(() => {
     axios
       .get(
-        "https://api.openweathermap.org/data/2.5/onecall?lat=35&lon=139&exclude=hourly,minutely&appid=7fa8ec92190927efb89d316589df0a71&unit=metric"
+        "https://api.openweathermap.org/data/2.5/onecall?lat=35&lon=139&exclude=hourly,minutely&appid=7fa8ec92190927efb89d316589df0a71"
       )
       .then((response) => {
         let weatherConditions = response.data.daily.filter((date) => {          
@@ -48,6 +48,9 @@ export default function Example() {
             <i className={`wi ${dict[weather.weather[0].icon]}`}></i>
             <p className="mt-1 text-lg font-medium text-gray-900">
               {weather.temp.day}
+            </p>
+            <p className="mt-1 text-lg font-medium text-gray-900">
+              {weather.weather[0].description}
             </p>
             {/* <p className="mt-1 text-lg font-medium text-gray-900">
               {weather.weather[0].description}

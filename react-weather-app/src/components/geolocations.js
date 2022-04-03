@@ -24,6 +24,7 @@ useEffect(() => {
           let country=value[count-1];
           let city=value[count-3];
           setPresentLocation(`${city},${country}`)
+
         },
         (error) => {
           console.error(error);

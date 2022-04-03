@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import dict from "../dict";
 import GeoLocations from "./geolocations";
+import weatherData from "../weatherData.json"
 
 export default function Example() {
   var day = [
@@ -14,26 +15,45 @@ export default function Example() {
     "Sunday",
   ];
   const [weatherConditions, setweatherConditions] = useState();
-
+  const [coords, setCoords] = useState()
   let count =0;
+  navigator.geolocation.getCurrentPosition(function(position) {
+    setCoords(position)
+  });
   useEffect(() => {
-    axios
-      .get(
-        "https://api.openweathermap.org/data/2.5/onecall?lat=35&lon=139&exclude=hourly,minutely&appid=7fa8ec92190927efb89d316589df0a71&units=metric"
-      )
-      .then((response) => {
-        let weatherConditions = response.data.daily.filter((date) => {
-          if(count < 5){
-            count ++;
-            return (
-              new Date(date.dt * 1000).toLocaleTimeString()
-            );
-          }          
-        });
-        setweatherConditions(weatherConditions);
+    // if(coords !== undefined){
+    // axios
+    //   .get(
+    //     `https://api.openweathermap.org/data/2.5/onecall?lat=${coords.coords.latitude}&lon=${coords.coords.longitude}&exclude=hourly,minutely&appid=b7e82c1fd0244baac1d6ac379633a7dc&units=metric`
+    //   )
+    //   .then((response) => {
+    //     let weatherConditions = response.data.daily.filter((date) => {
+    //       if(count < 5){
+    //         count ++;
+    //         return (
+    //           new Date(date.dt * 1000).toLocaleTimeString()
+    //         );
+    //       }          
+    //     });
+    //     setweatherConditions(weatherConditions);
+    //   });
+    // }
+    if(weatherData !== undefined)
+    {
+      let weatherConditions = weatherData.daily.filter((date) => {
+        if(count < 5){
+          count ++;
+          return (
+            new Date(date.dt * 1000).toLocaleTimeString()
+          );
+        }          
       });
-  }, []);
+       setweatherConditions(weatherConditions);
+    }
 
+  }, []);
+  //if(coords !== undefined)
+    //console.log(`https://api.openweathermap.org/data/2.5/onecall?lat=${coords.coords.latitude}&lon=${coords.coords.longitude}&exclude=hourly,minutely&appid=7fa8ec92190927efb89d316589df0a71&units=metric`)
   let showData = "";
   if (weatherConditions) {
     showData = weatherConditions.map((weather) => {

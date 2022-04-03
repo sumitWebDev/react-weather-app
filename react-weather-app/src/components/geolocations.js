@@ -1,11 +1,12 @@
 import React from 'react';
 import { useEffect, useState } from "react";
 import Geocode from "react-geocode";
+import WeatherDetails from "../components/weatherDetails"
 
 const GeoLocations = props => {
 
 const[presentLocation,setPresentLocation] = useState();
-
+const [coords,setCoords]=useState();
 // set Google Maps Geocoding API for purposes of quota management. Its optional but recommended.
 Geocode.setApiKey("AIzaSyCCHU_IgLDOItszJRVygrzBzLQUWuQyeEs");
 
@@ -24,7 +25,7 @@ useEffect(() => {
           let country=value[count-1];
           let city=value[count-3];
           setPresentLocation(`${city},${country}`)
-
+          setCoords(position.coords)
         },
         (error) => {
           console.error(error);
@@ -34,9 +35,13 @@ useEffect(() => {
 
   }, []);
     return (
-        <div>
+            <div className="bg-white">
+            <div className="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+              <h2 className="sr-only">Weather Conditions</h2>
             <p>{presentLocation ? presentLocation : ''}</p>
-        </div>
+             {coords ? <WeatherDetails coords={coords}/> :''}
+            </div>
+          </div>
     );
 };
 

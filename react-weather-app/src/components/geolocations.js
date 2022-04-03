@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Geocode from "react-geocode";
 import WeatherDetails from "../components/weatherDetails"
 
-const GeoLocations = props => {
+const GeoLocations = (props) => {
 
 const[presentLocation,setPresentLocation] = useState();
 const [coords,setCoords]=useState();
@@ -16,7 +16,9 @@ Geocode.setLocationType("ROOFTOP");
 
 //Fetching current longitude and latitude and getting place name based on that
 useEffect(() => {
+    //Getting present location co-ordinates
     navigator.geolocation.getCurrentPosition(function(position) {
+      //Sending present co-ordinates to get location details
       Geocode.fromLatLng(position.coords.latitude, position.coords.longitude).then(
         (response) => {
           const address = response.results[0].formatted_address;

@@ -13,7 +13,7 @@ export default function Example(props) {
     "Sunday",
   ];
   const [weatherConditions, setweatherConditions] = useState();
-  let count = 0;
+  const [count,setCount] = useState(0);
   useEffect(() => {
     axios
       .get(
@@ -22,7 +22,7 @@ export default function Example(props) {
       .then((response) => {
         let weatherConditions = response.data.daily.map((weather) => {
           if (count < 5) {
-            count++;
+            setCount(count+1)
             return (
               <a key={weather.dt} href="#" className="group">
                 <div className="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8 text-center">
@@ -43,6 +43,8 @@ export default function Example(props) {
               </a>
             );
           }
+          else
+           return false
         });
         setweatherConditions(weatherConditions);
       });

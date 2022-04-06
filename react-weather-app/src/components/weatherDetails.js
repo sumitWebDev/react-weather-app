@@ -1,5 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { FetchWeatherDetailsAsync } from "../actions/weather.actions";
 import dict from "../dict";
 
 export default function WeatherDetails(props) {
@@ -17,23 +19,20 @@ export default function WeatherDetails(props) {
   let dailyWeather = '';
   let weatherCount = 0;
 
-  //state declaration
-  const [weatherConditions, setweatherConditions] = useState();
 
-  //Fetching weather api 
+  const { weatherDetailsList } = useSelector((store) => store);
+  const dispatch = useDispatch();
+
+  //Fetching weather details
   useEffect(() => {
-    axios
-      .get(
-        `https://api.openweathermap.org/data/2.5/onecall?lat=${props.coords.latitude}&lon=${props.coords.longitude}&exclude=hourly,minutely&appid=7fa8ec92190927efb89d316589df0a71&units=metric`
-      )
-      .then((response) => {
-        setweatherConditions(response.data.daily);
-      });
-  }, [props.coords.latitude, props.coords.longitude]);
+    dispatch(FetchWeatherDetailsAsync());
+  }, [dispatch]);
+
 
   //Iterating daily weather objects
-  if (weatherConditions !== undefined) {
-    dailyWeather = weatherConditions.map((weather) => {
+  if (weatherDetailsList !== undefined) {
+    dailyWeather = weatherDetailsList.map((weather) => {
+      console.log(weather.dt)
       if (weatherCount < 5) {
         weatherCount++;
         return (
@@ -64,7 +63,7 @@ export default function WeatherDetails(props) {
   return (
     <>
       <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-        {dailyWeather}
+        {dailyWeather.length > 0 ? dailyWeather : 'Loading...'}
       </div>
     </>
   );

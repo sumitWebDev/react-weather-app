@@ -5,6 +5,10 @@ export function FetchWeatherDetails(weatherData) {
     return { type: "FETCH_WEATHER_DETAILS", payload: weatherData };
 }
 
+export function FetchWeatherDay(dayData) {
+    return { type: "FETCH_WEATHER_DAY", payload: dayData };
+}
+
 
 //Action to fetch weather datas using Redux Thunk
 export function FetchWeatherDetailsAsync(latitude = '22.6086619', longitude = '-88.3311889') {
@@ -12,5 +16,13 @@ export function FetchWeatherDetailsAsync(latitude = '22.6086619', longitude = '-
         axios
             .get(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=hourly,minutely&appid=7fa8ec92190927efb89d316589df0a71&units=metric`)
             .then((response) => dispatch(FetchWeatherDetails(response.data.daily)));
+    };
+}
+
+export function FetchWeatherDayAsync(latitude = '22.6086619', longitude = '-88.3311889') {
+    return (dispatch) => {
+        axios
+            .get(`https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=7fa8ec92190927efb89d316589df0a71&units=metric`)
+            .then((response) => dispatch(FetchWeatherDay(response.data.list)));
     };
 }

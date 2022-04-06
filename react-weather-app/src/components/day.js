@@ -1,11 +1,28 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { FetchWeatherDayAsync } from "../actions/weather.actions";
 
-function day(props) {
+const Day = (props) => {
+    const dispatch = useDispatch();
+    const { weatherEachDay } = useSelector((store) => store);;
+
+
+    useEffect(() => {
+        dispatch(FetchWeatherDayAsync());
+    }, [dispatch])
+    console.log(weatherEachDay)
+    let dataEachDay = weatherEachDay.map((day) => {
+        return (
+            <p key={day.dt}>{day.dt_txt}</p>
+        )
+    })
     return (
-        <div>
+        <>
             Day to Day
-        </div>
+            {dataEachDay}
+        </>
     );
 }
 
-export default day;
+export default Day;

@@ -26,7 +26,7 @@ export default function WeatherDetails(props) {
     if (weatherCount < 5) {
       weatherCount++;
       return (
-        <Link to='/day' key={weather.dt} target='blank' className="group">
+        <Link to={`/day/${weather.dt}`} key={weather.dt} target='blank' className="group">
           <div className="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8 text-center">
             <h3 className="mt-4 text-sm text-gray-700">
               {moment(new Date(weather.dt * 1000)).format("dddd ")}

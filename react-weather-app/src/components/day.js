@@ -4,15 +4,21 @@ import { useEffect } from 'react';
 import { FetchWeatherDayAsync } from "../actions/weather.actions";
 import dict from "../dict";
 import moment from "moment";
+import { useParams } from 'react-router-dom';
 
 const Day = (props) => {
     const dispatch = useDispatch();
-    const { weatherEachDay } = useSelector((store) => store);;
+    const { weatherEachDay } = useSelector((store) => store);
+    const params = useParams();
+    console.log(params);
     useEffect(() => {
         dispatch(FetchWeatherDayAsync());
     }, [dispatch])
-    console.log(weatherEachDay)
+    //console.log(weatherEachDay)
     let dataEachDay = weatherEachDay.map((day) => {
+        if(moment(new Date()).format('DD/MM/YYYY')=== moment(new Date(day.dt*1000)).format('DD/MM/YYYY')){
+            console.log(moment(new Date()).format('DD/MM/YYYY'));
+            console.log(moment(new Date(day.dt*1000)).format('DD/MM/YYYY'));
         return (
             <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
                 <div className="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8 text-center">
@@ -32,6 +38,7 @@ const Day = (props) => {
                 </div>
           </div>
         )
+    }
     })
     return (
         <>

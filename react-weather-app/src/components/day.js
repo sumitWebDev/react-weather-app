@@ -12,7 +12,7 @@ const Day = (props) => {
     const params = useParams();
     console.log(params);
     useEffect(() => {
-        dispatch(FetchWeatherDayAsync());
+        dispatch(FetchWeatherDayAsync(params.id));
     }, [dispatch])
     //console.log(weatherEachDay)
     let dataEachDay = weatherEachDay.map((day) => {

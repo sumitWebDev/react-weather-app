@@ -17,7 +17,7 @@ export default function WeatherDetails(props) {
 
   //Fetching weather details
   useEffect(() => {
-    dispatch(FetchWeatherDetailsAsync());
+    //dispatch(FetchWeatherDetailsAsync());
   }, [dispatch]);
 
 

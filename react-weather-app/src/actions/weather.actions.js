@@ -1,4 +1,5 @@
 import axios from "axios";
+import Geocode from "react-geocode";
 
 //Action to fetch weather details across the application
 export function FetchWeatherDetails(weatherData) {
@@ -26,3 +27,27 @@ export function FetchWeatherDayAsync(latitude = '22.6086619', longitude = '-88.3
             .then((response) => dispatch(FetchWeatherDay(response.data.list)));
     };
 }
+
+export function getCurrentPosition() {
+    // return (dispatch) => {
+    //     navigator.geolocation.getCurrentPosition(function (position) {
+    //         Geocode.fromLatLng(position.coords.latitude, position.coords.longitude).then(
+    //             (response) => {
+    //                 const address = response.results[0].formatted_address;
+    //                 let value = address.split(",");
+    //                 let count = value.length;
+    //                 let country = value[count - 1];
+    //                 let city = value[count - 3];            
+    //                 return({ type: "FETCH_PRESENT_LOCATION", payload: `${city},${country}`})
+    //             },
+    //             (error) => {
+    //                 console.error(error);
+    //             }
+    //         );
+    //     });
+        
+    // };
+    return { type: "FETCH_PRESENT_LOCATION", payload: {'dayData':'test'} };
+}
+
+

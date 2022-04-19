@@ -28,7 +28,7 @@ export function weatherEachDay(
 ) {
     switch (action.type) {
         case "FETCH_WEATHER_DAY": {
-            //return [...state, ...action.payload];
+            return [...state, ...action.payload];
         }
         default:
             return state

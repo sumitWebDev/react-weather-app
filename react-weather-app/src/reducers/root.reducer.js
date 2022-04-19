@@ -1,7 +1,8 @@
 import { combineReducers } from "redux";
-import { weatherDetailsList,weatherEachDay } from "./weather.reducer";
+import { weatherDetailsList,weatherEachDay, presentLocation } from "./weather.reducer";
 var rootReducer = combineReducers({
   weatherDetailsList,
-  weatherEachDay
+  weatherEachDay,
+  presentLocation
 });
 export default rootReducer;

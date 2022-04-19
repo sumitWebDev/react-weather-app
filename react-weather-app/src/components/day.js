@@ -10,7 +10,6 @@ const Day = (props) => {
     const dispatch = useDispatch();
     const { weatherEachDay } = useSelector((store) => store);
     const params = useParams();
-    console.log(params);
     useEffect(() => {
         dispatch(FetchWeatherDayAsync(params.id));
     }, [dispatch])

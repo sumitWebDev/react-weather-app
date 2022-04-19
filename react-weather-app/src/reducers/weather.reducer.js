@@ -3,7 +3,7 @@
 const initialState = {
     weatherDetailsList: [],
     weatherEachDay: [],
-    presentLocation:[]
+    presentLocation:''
 };
 
 
@@ -42,7 +42,6 @@ export function presentLocation(
 ) {
     switch (action.type) {
         case "FETCH_PRESENT_LOCATION": {
-            console.log(action.payload)
             return action.payload;
         }
         default:

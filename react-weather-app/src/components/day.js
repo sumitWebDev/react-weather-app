@@ -39,7 +39,7 @@ const Day = (props) => {
     return (
         <>
             Day to Day
-            {dataEachDay}
+            {dataEachDay.length>0 ? dataEachDay : '...Loading weather data'}
         </>
     );
 }

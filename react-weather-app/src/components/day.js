@@ -16,7 +16,7 @@ const Day = (props) => {
     let dataEachDay = weatherEachDay.map((day) => {
         if(moment(new Date(params.id*1000)).format('DD/MM/YYYY')=== moment(new Date(day.dt*1000)).format('DD/MM/YYYY')){
         return (
-            <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+            <div key={day.dt} className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
                 <div className="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8 text-center">
                     <h3 className="mt-4 text-sm text-gray-700">
                     {moment(new Date(day.dt*1000)).format("hh:mm A")}

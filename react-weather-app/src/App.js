@@ -7,7 +7,7 @@ function App() {
     <>
       <Routes>
         <Route path='/' element={<Weather />} />
-        <Route path='/day/:id' element={<Day />} />
+        <Route path='/:id' element={<Day />} />
         <Route path='*' element={<Day />} />
       </Routes>
     </>

@@ -37,12 +37,12 @@ export default function WeatherDetails(props) {
       weatherCount++;
       let durationOfDay = getDurationOfTheDay(moment(new Date(weather.dt * 1000)).format("H"));
       return (
-        <Link to={`/day/${weather.dt}`} key={weather.dt} target='blank' className="group">
+        <Link to={`/${weather.dt}`} key={weather.dt} target='blank' className="group">
           <div className="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8 text-center">
             <h3 className="mt-4 text-sm text-gray-700">
               {moment(new Date(weather.dt * 1000)).format("dddd ")}
             </h3>
-            <p className="mt-1 text-lg font-medium text-gray-900">
+            <p className="mt-1 text-lg font-medium text-gray-900 date">
               {moment(new Date(weather.dt * 1000)).format('DD/MM/YYYY')}
             </p>
             <i className={`wi ${dict[weather.weather[0].icon]}`}></i>

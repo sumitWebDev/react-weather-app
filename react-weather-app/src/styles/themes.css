@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+#root{
+    background-color: #089075;
+}
+*{
+    color: white;
+}
+.weather-wrapper{
+    width: 1240px;
+    margin: 0 auto;
+}
 
 .weather-wrapper .heading{
     background-color: #E9ECEF;
@@ -12,4 +22,8 @@ i::before{
 }
 .date{
     margin-bottom: 10px;
+}
+
+main{
+    background-color: #21BD9D;
 }

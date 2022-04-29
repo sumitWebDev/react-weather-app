@@ -11,10 +11,10 @@
 .weather-wrapper{
     width: 1240px;
     margin: 0 auto;
+    padding: 90px;
 }
-
-.weather-wrapper .heading{
-    background-color: #E9ECEF;
+.weather-container{
+    height: 37vw;
 }
 
 i::before{

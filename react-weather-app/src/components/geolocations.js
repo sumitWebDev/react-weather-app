@@ -25,17 +25,11 @@ const GeoLocations = (props) => {
     }, [dispatch]);
 
     return (
-        <div className="flex flex-row min-h-screen bg-gray-100 text-gray-800">
-            <aside class="bg-gradient-to-t from-green to-dark-green   sidebar w-64 md:shadow transform -translate-x-full md:translate-x-0 transition-transform duration-150 ease-in bg-indigo-500">
-                <ul class="relative">
-                    <li class="relative">
-                        <a class="flex items-center text-sm py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out" href="#!" data-mdb-ripple="true" data-mdb-ripple-color="dark">Sidenav link 1</a>
-                    </li>
-                    <li class="relative">
-                        <a class="flex items-center text-sm py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out" href="#!" data-mdb-ripple="true" data-mdb-ripple-color="dark">Sidenav link 2</a>
-                    </li>
-                    <li class="relative">
-                        <a class="flex items-center text-sm py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out" href="#!" data-mdb-ripple="true" data-mdb-ripple-color="dark">Sidenav link 2</a>
+        <div className="flex flex-row weather-container">
+            <aside className="bg-gradient-to-t from-green to-dark-green sidebar w-64 md:shadow transform -translate-x-full md:translate-x-0">
+                <ul className="relative">
+                    <li className="relative">
+                        <p className="flex items-center text-sm py-4 px-6 h-12">Sidenav link 1</p>
                     </li>
                 </ul>
             </aside>

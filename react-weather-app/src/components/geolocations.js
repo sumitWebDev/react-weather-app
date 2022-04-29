@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Geocode from "react-geocode";
 import WeatherDetails from "../components/weatherDetails";
 import { getCurrentPosition } from "../actions/weather.actions";
+import Sidebar from './sidebar';
 
 const GeoLocations = (props) => {
 
@@ -26,15 +27,8 @@ const GeoLocations = (props) => {
 
     return (
         <div className="flex flex-row weather-container">
-            <aside className="bg-gradient-to-t from-green to-dark-green sidebar w-64 md:shadow transform -translate-x-full md:translate-x-0">
-                <ul className="relative">
-                    <li className="relative">
-                        <p className="flex items-center text-sm py-4 px-6 h-12">Sidenav link 1</p>
-                    </li>
-                </ul>
-            </aside>
+            <Sidebar />
             <main className="main flex flex-col flex-grow -ml-64 md:ml-0 transition-all duration-150 ease-in">
-                <h2 className="sr-only">Weather Conditions</h2>
                 <p>{presentLocation ? presentLocation : ''}</p>
                 <WeatherDetails />
             </main>

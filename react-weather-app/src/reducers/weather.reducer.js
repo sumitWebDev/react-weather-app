@@ -3,6 +3,7 @@
 const initialState = {
     weatherDetailsList: [],
     weatherEachDay: [],
+    weatherToday:[],
     presentLocation:''
 };
 
@@ -29,6 +30,20 @@ export function weatherEachDay(
     switch (action.type) {
         case "FETCH_WEATHER_DAY": {
             return [...state, ...action.payload];
+        }
+        default:
+            return state
+    }
+}
+
+//Reducer to fetch present day weather
+export function weatherToday(
+    state = initialState.weatherToday,
+    action
+) {
+    switch (action.type) {
+        case "FETCH_PRESENT_DAY": {
+            return [...state, action.payload];
         }
         default:
             return state

@@ -11,6 +11,11 @@ export function FetchWeatherDay(dayData) {
     return { type: "FETCH_WEATHER_DAY", payload: dayData };
 }
 
+//Action to fetch present day data
+export function FetchWeatherDetailsToday(dayData) {
+    return { type: "FETCH_PRESENT_DAY", payload: dayData };
+}
+
 //Action to fetch present location name,country
 export function getPresentLocationName(locationData) {
     return { type: "FETCH_PRESENT_LOCATION", payload: locationData };
@@ -22,7 +27,10 @@ export function FetchWeatherDetailsAsync() {
         navigator.geolocation.getCurrentPosition(function (position) {
         axios
             .get(`https://api.openweathermap.org/data/2.5/onecall?lat=${position.coords.latitude}&lon=${position.coords.longitude}&exclude=hourly,minutely&appid=7fa8ec92190927efb89d316589df0a71&units=metric`)
-            .then((response) => dispatch(FetchWeatherDetails(response.data.daily)));
+            .then((response) => {
+                dispatch(FetchWeatherDetails(response.data.daily));
+                dispatch(FetchWeatherDetailsToday(response.data.current));
+            });
         })
     };
 }

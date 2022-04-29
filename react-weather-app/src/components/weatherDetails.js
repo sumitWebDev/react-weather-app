@@ -13,7 +13,6 @@ export default function WeatherDetails(props) {
 
 
   const { weatherDetailsList } = useSelector((store) => store);
-  console.log(weatherDetailsList);
   const dispatch = useDispatch();
 
   //Fetching weather details

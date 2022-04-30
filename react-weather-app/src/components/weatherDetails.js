@@ -33,17 +33,14 @@ export default function WeatherDetails(props) {
   let durationOfDay = getDurationOfTheDay(parseInt(moment().format('H')));
   //Iterating daily weather objects
   dailyWeather = weatherDetailsList.map((weather) => {
-    if (weatherCount < 5) {
+    if (weatherCount < 7 && (moment(new Date()).format("DD/MM/YYYY") !== moment(new Date(weather.dt * 1000)).format('DD/MM/YYYY'))) {
       weatherCount++;
       return (
         <Link to={`/${weather.dt}`} key={weather.dt} target='blank' className="group">
-          <div className="w-full text-center">
+          <div className="w-full text-center date">
             <h3 className="mt-4 text-sm">
-              {moment(new Date(weather.dt * 1000)).format("dddd ")}
+            {moment(new Date(weather.dt * 1000)).format('ddd, DD MMMM')}
             </h3>
-            <p className="mt-1 text-lg font-medium date">
-              {moment(new Date(weather.dt * 1000)).format('DD/MM/YYYY')}
-            </p>
             <i className={`wi ${dict[weather.weather[0].icon]}`}></i>
             <p className="mt-1 text-lg font-medium">
               {weather.temp[durationOfDay]}{durationOfDay}&deg;C

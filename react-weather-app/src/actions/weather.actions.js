@@ -72,6 +72,3 @@ export function getCurrentPosition() {
         });
     };
 }
-
-
-

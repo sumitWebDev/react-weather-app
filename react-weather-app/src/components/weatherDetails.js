@@ -4,6 +4,7 @@ import { FetchWeatherDetailsAsync } from "../actions/weather.actions";
 import { Link } from 'react-router-dom'
 import dict from "../dict";
 import moment from "moment";
+import '../styles/weatherDetails.scss'
 
 export default function WeatherDetails(props) {
 
@@ -38,16 +39,18 @@ export default function WeatherDetails(props) {
       return (
         <Link to={`/${weather.dt}`} key={weather.dt} target='blank' className="group">
           <div className="w-full text-center date">
+            <div className = "weather-icon">
+              <i className={`wi ${dict[weather.weather[0].icon]}`}></i>
+            </div>
+            <p className="mt-1 text-lg font-medium">
+              {weather.temp[durationOfDay]}&deg;C
+            </p>
+            <p className="mt-1 text-lg font-medium weather-desc">
+              {weather.weather[0].description}
+            </p>
             <h3 className="mt-4 text-sm">
             {moment(new Date(weather.dt * 1000)).format('ddd, DD MMMM')}
             </h3>
-            <i className={`wi ${dict[weather.weather[0].icon]}`}></i>
-            <p className="mt-1 text-lg font-medium">
-              {weather.temp[durationOfDay]}{durationOfDay}&deg;C
-            </p>
-            <p className="mt-1 text-lg font-medium">
-              {weather.weather[0].description}
-            </p>
           </div>
         </Link>
       );
@@ -58,7 +61,7 @@ export default function WeatherDetails(props) {
   return (
     <>
       <main className="main flex flex-col flex-grow -ml-64 md:ml-0 transition-all duration-150 ease-in">
-        <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+        <div className="grid grid-cols-3 gap-4">
           {dailyWeather.length > 0 ? dailyWeather : 'Loading...'}
         </div>
       </main>

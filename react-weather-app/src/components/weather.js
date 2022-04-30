@@ -10,11 +10,9 @@ const Weather = () => {
                 </div>
 
                 <div className="flex flex-row weather-container">
-            <Sidebar />
-            <main className="main flex flex-col flex-grow -ml-64 md:ml-0 transition-all duration-150 ease-in">
-                <WeatherDetails />
-            </main>
-        </div>
+                    <Sidebar />
+                    <WeatherDetails />
+                </div>
             </div>
         </>
     );

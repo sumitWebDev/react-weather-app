@@ -1,5 +1,6 @@
 import React from 'react';
-import Geolocation from './geolocations'
+import WeatherDetails from "../components/weatherDetails";
+import Sidebar from './sidebar';
 const Weather = () => {
     return (
         <>
@@ -8,8 +9,12 @@ const Weather = () => {
                     <h2 className='text-lg'> 5 Day Forecast </h2>
                 </div>
 
-                {/* Component to calculate present location and render weather details component */}
-                <Geolocation />
+                <div className="flex flex-row weather-container">
+            <Sidebar />
+            <main className="main flex flex-col flex-grow -ml-64 md:ml-0 transition-all duration-150 ease-in">
+                <WeatherDetails />
+            </main>
+        </div>
             </div>
         </>
     );

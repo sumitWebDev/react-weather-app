@@ -25,12 +25,12 @@ export function getPresentLocationName(locationData) {
 export function FetchWeatherDetailsAsync() {
     return (dispatch) => {
         navigator.geolocation.getCurrentPosition(function (position) {
-        axios
-            .get(`https://api.openweathermap.org/data/2.5/onecall?lat=${position.coords.latitude}&lon=${position.coords.longitude}&exclude=hourly,minutely&appid=7fa8ec92190927efb89d316589df0a71&units=metric`)
-            .then((response) => {
-                dispatch(FetchWeatherDetails(response.data.daily));
-                dispatch(FetchWeatherDetailsToday(response.data.current));
-            });
+            axios
+                .get(`https://api.openweathermap.org/data/2.5/onecall?lat=${position.coords.latitude}&lon=${position.coords.longitude}&exclude=hourly,minutely&appid=7fa8ec92190927efb89d316589df0a71&units=metric`)
+                .then((response) => {
+                    dispatch(FetchWeatherDetails(response.data.daily));
+                    dispatch(FetchWeatherDetailsToday(response.data.current));
+                });
         })
     };
 }
@@ -39,9 +39,9 @@ export function FetchWeatherDetailsAsync() {
 export function FetchWeatherDayAsync() {
     return (dispatch) => {
         navigator.geolocation.getCurrentPosition(function (position) {
-        axios
-            .get(`https://api.openweathermap.org/data/2.5/forecast?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=7fa8ec92190927efb89d316589df0a71&units=metric`)
-            .then((response) => dispatch(FetchWeatherDay(response.data.list)));
+            axios
+                .get(`https://api.openweathermap.org/data/2.5/forecast?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=7fa8ec92190927efb89d316589df0a71&units=metric`)
+                .then((response) => dispatch(FetchWeatherDay(response.data.list)));
         })
     };
 }
@@ -50,6 +50,12 @@ export function FetchWeatherDayAsync() {
 export function getCurrentPosition() {
     return (dispatch) => {
         navigator.geolocation.getCurrentPosition(function (position) {
+            // set Google Maps Geocoding API for purposes of quota management. Its optional but recommended.
+            Geocode.setApiKey("AIzaSyCCHU_IgLDOItszJRVygrzBzLQUWuQyeEs");
+
+            // set response language. Defaults to english.
+            Geocode.setLanguage("en");
+            Geocode.setLocationType("ROOFTOP");
             Geocode.fromLatLng(position.coords.latitude, position.coords.longitude).then(
                 (response) => {
                     const address = response.results[0].formatted_address;

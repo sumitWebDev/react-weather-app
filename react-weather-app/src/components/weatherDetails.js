@@ -39,7 +39,10 @@ export default function WeatherDetails(props) {
       return (
         <Link to={`/${weather.dt}`} key={weather.dt} target='blank' className="group">
           <div className="w-full text-center date">
-            <div className = "weather-icon">
+            <h3 className="mt-4 text-sm">
+              {moment(new Date(weather.dt * 1000)).format('ddd, DD MMMM')}
+            </h3>
+            <div className="weather-icon">
               <i className={`wi ${dict[weather.weather[0].icon]}`}></i>
             </div>
             <p className="mt-1 text-lg font-medium">
@@ -48,9 +51,6 @@ export default function WeatherDetails(props) {
             <p className="mt-1 text-lg font-medium weather-desc">
               {weather.weather[0].description}
             </p>
-            <h3 className="mt-4 text-sm">
-            {moment(new Date(weather.dt * 1000)).format('ddd, DD MMMM')}
-            </h3>
           </div>
         </Link>
       );

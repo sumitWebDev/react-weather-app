@@ -1,7 +1,7 @@
 import Weather from './components/weather'
 import Day from './components/day';
-import { Routes, Route,Link } from 'react-router-dom'
-import './styles/themes.css'
+import { Routes, Route } from 'react-router-dom'
+import './styles/themes.scss'
 function App() {
   return (
     <>

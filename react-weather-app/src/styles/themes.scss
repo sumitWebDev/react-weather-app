@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "./variables.scss";
 
 #root{
     background-color: #089075;
@@ -8,11 +9,15 @@
 *{
     color: white;
 }
-.weather-wrapper{
-    width: 1240px;
-    margin: 0 auto;
-    padding: 90px;
+
+@include desktop{
+    .weather-wrapper{
+        width: 1240px;
+        margin: 0 auto;
+        padding: 90px;
+    }
 }
+
 
 i::before{
     font-size: 50px;

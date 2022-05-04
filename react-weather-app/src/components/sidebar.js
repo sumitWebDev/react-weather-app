@@ -25,7 +25,7 @@ const Sidebar = (props) => {
         <aside className="bg-gradient-to-t from-green to-dark-green sidebar w-80 md:translate-x-0 sidebar-wrapper">
             <ul className="relative">
                 <li className="relative"> 
-                <h3 className="mt-4 text-sm current-date">           
+                <h3 className="mt-4 text-lg current-date">           
                 {weatherDate}  
                 </h3>                       
                     <div className= "sidebar-image-icon" >

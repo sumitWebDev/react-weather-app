@@ -21,9 +21,6 @@ const Day = (props) => {
                     <h3 className="mt-4 text-sm text-gray-700">
                         {moment(new Date(day.dt * 1000)).format("hh:mm A")}
                     </h3>
-                    <p className="mt-1 text-lg font-medium text-gray-900">
-                        {/* {new Date(day.dt * 1000).toLocaleDateString()} */}
-                    </p>
                     <i className={`wi ${dict[day.weather[0].icon]}`}></i>
                     <p className="mt-1 text-lg font-medium text-gray-900">
                         {day.main.temp}&deg;C

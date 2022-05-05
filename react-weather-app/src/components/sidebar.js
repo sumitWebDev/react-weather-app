@@ -6,6 +6,8 @@ import { useEffect } from "react";
 import dict from "../dict";
 import moment from "moment";
 import '../styles/sidebar.scss'
+import Search  from './search';
+
 
 const Sidebar = (props) => {
     const { weatherToday, presentLocation } = useSelector((store) => store)
@@ -27,7 +29,8 @@ const Sidebar = (props) => {
                 <li className="relative"> 
                 <h3 className="mt-4 text-lg current-date">           
                 {weatherDate}  
-                </h3>                       
+                </h3>        
+                    <Search />               
                     <div className= "sidebar-image-icon" >
                     <i className={`wi ${dict[weatherIcon]}` }></i>
                     </div>

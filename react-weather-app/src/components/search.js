@@ -4,7 +4,7 @@ import usePlacesAutocomplete, {
   } from "use-places-autocomplete";
   //import useOnclickOutside from "react-cool-onclickoutside";
   import '../styles/search.scss'
-  
+
   const Search = () => {
     const {
       ready,
@@ -63,7 +63,7 @@ import usePlacesAutocomplete, {
       });
   
     return (
-      <div class="search-wrapper">
+      <div className="search-wrapper">
         <input
           value={value}
           onChange={handleInput}

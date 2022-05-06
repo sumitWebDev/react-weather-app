@@ -3,9 +3,10 @@ import usePlacesAutocomplete, {
     getLatLng,
   } from "use-places-autocomplete";
   //import useOnclickOutside from "react-cool-onclickoutside";
+  import { useDispatch } from "react-redux";
   import '../styles/search.scss'
-
-  const Search = () => {
+  import {getCurrentPosition, FetchWeatherDetailsAsync} from '../actions/weather.actions'
+    const Search = () => {
     const {
       ready,
       value,
@@ -23,7 +24,7 @@ import usePlacesAutocomplete, {
     //   // the searched suggestions by calling this method
     //   clearSuggestions();
     // });
-  
+    const dispatch = useDispatch()
     const handleInput = (e) => {
       // Update the keyword of the input element
       setValue(e.target.value);
@@ -41,6 +42,8 @@ import usePlacesAutocomplete, {
         getGeocode({ address: description })
           .then((results) => getLatLng(results[0]))
           .then(({ lat, lng }) => {
+            dispatch(getCurrentPosition({'coords':{ 'latitude' : lat, 'longitude': lng }}))
+            dispatch(FetchWeatherDetailsAsync({'coords':{ 'latitude' : lat, 'longitude': lng }}))
             console.log("📍 Coordinates: ", { lat, lng });
           })
           .catch((error) => {

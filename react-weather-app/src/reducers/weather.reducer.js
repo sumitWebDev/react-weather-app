@@ -15,7 +15,7 @@ export function weatherDetailsList(
 ) {
     switch (action.type) {
         case "FETCH_WEATHER_DETAILS": {
-            return [...state, ...action.payload];
+            return [...action.payload];
         }
         default:
             return state
@@ -29,7 +29,7 @@ export function weatherEachDay(
 ) {
     switch (action.type) {
         case "FETCH_WEATHER_DAY": {
-            return [...state, ...action.payload];
+            return [...action.payload];
         }
         default:
             return state
@@ -43,7 +43,7 @@ export function weatherToday(
 ) {
     switch (action.type) {
         case "FETCH_PRESENT_DAY": {
-            return [...state, action.payload];
+            return [action.payload];
         }
         default:
             return state

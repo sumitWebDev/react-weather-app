@@ -24,7 +24,7 @@ const Sidebar = (props) => {
         weatherDate = moment(new Date(weatherToday[0].dt * 1000)).format('ddd, DD MMMM')
     }
     return (
-        <aside className="bg-gradient-to-t from-green to-dark-green sidebar w-80 md:translate-x-0 sidebar-wrapper">
+        <aside className="bg-gradient-to-t from-green to-dark-green sidebar w-full sm:w-5/6 md:w-3/6 lg:w-80 md:translate-x-0 sidebar-wrapper ">
             <ul className="relative">
                 <li className="relative"> 
                 <h3 className="mt-4 text-lg current-date">           

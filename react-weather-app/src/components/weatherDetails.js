@@ -60,7 +60,7 @@ export default function WeatherDetails(props) {
   });
   return (
     <>
-      <main className="main flex flex-col flex-grow -ml-64 md:ml-0 transition-all duration-150 ease-in">
+      <main className="main transition-all duration-150 ease-in col-span-2">
         <div className="grid grid-cols-3 gap-4">
           {dailyWeather.length > 0 ? dailyWeather : 'Loading...'}
         </div>

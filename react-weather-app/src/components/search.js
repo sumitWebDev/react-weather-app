@@ -68,6 +68,7 @@ import usePlacesAutocomplete, {
     return (
       <div className="search-wrapper">
         <input
+          class='clearable'
           value={value}
           onChange={handleInput}
           disabled={!ready}

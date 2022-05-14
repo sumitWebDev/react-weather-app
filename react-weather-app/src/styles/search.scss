@@ -1,13 +1,29 @@
 .search-wrapper {
-    margin: 0 auto 36px;
-    input{
-        color: black;
-        width: 100%;
-        padding: 14px;
-        
+  margin: 0 auto 36px;
+  input {
+    color: black;
+    width: 100%;
+    padding: 14px;
+    &:focus-visible {
+      border: none;
+      outline: none;
     }
-    ul{
-        position: absolute;
-        background: black;
+  }
+  ul {
+    position: absolute;
+    background: white;
+    padding: 10px;
+    overflow-y: scroll;
+    height: 300px;
+    border-top: 1px solid grey;
+    li {
+      padding-bottom: 14px;
+      strong {
+        color: #4a4a4a;
+      }
+      small {
+        color: #4a4a4a;
+      }
     }
+  }
 }

@@ -1,15 +1,14 @@
 .search-wrapper {
-    width: 88%;
     margin: 0 auto 36px;
     input{
         color: black;
         width: 100%;
         padding: 14px;
+        
     }
     ul{
         position: absolute;
         background: black;
-        width: 88%;
     }
     .clearable{
         background-image: url('../assets/icons8-close.svg');

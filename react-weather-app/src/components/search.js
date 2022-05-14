@@ -64,15 +64,17 @@ import usePlacesAutocomplete, {
           </li>
         );
       });
+
+
   
     return (
       <div className="search-wrapper">
         <input
-          class='clearable'
           value={value}
           onChange={handleInput}
           disabled={!ready}
           placeholder="Search Places"
+          type='search'
         />
         {/* We can use the "status" to decide whether we should display the dropdown or not */}
         {status === "OK" && <ul>{renderSuggestions()}</ul>}

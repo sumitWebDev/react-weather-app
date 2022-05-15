@@ -5,16 +5,16 @@
 
 .weather-wrapper{
     background-color: #089075;
+    height: 100vh;
 }
 *{
     color: white;
 }
 
 @include desktop{
-    .weather-wrapper{
+    .weather-container{
         width: 1240px;
         margin: 0 auto;
-        padding: 90px;
     }
 }
 

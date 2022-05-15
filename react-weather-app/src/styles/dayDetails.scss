@@ -1,9 +1,28 @@
+@import "./variables.scss";
 .day-details-cont{
     background-color: #1D212A;
+    height: 100vh;
+    @include mobile{
+        height: 100%;
+    }
+    
+    padding: 25px;
+    .day-details-grid{
+        background-color: #2C3947;
+        padding: 10px 0;
+    }
     .time{
         color: #1E9EA0;
+        padding-bottom: 12px;
     }
     .wi{
         color: #FB5E7A;
+    }
+    .temp-day{
+        color: #1E7F90;
+        padding: 10px 0;
+    }
+    .weather-cond-day{
+        color: #B8E2E8;
     }
 }

@@ -18,17 +18,20 @@ const Day = (props) => {
         if (moment(new Date(params.id * 1000)).format('DD/MM/YYYY') === moment(new Date(day.dt * 1000)).format('DD/MM/YYYY')) {
             return (
 
-                <div key={day.dt} className="w-full text-center">
+                <div key={day.dt} className="flex items-center text-center day-details-grid justify-center">
+                    <div className='day-details-grid-contents'>
                     <h3 className="text-white-700 time">
                         {moment(new Date(day.dt * 1000)).format("hh:mm A")}
                     </h3>
                     <i className={`wi ${dict[day.weather[0].icon]}`}></i>
-                    <p className="font-medium text-white-900">
+                    <p className="font-medium temp-day">
                         {day.main.temp}&deg;C
                     </p>
-                    <p className="font-medium text-white-900">
+                    <p className="font-medium weather-cond-day">
                         {day.weather[0].description}
                     </p>
+                    </div>
+
                 </div>
 
             )
@@ -36,10 +39,8 @@ const Day = (props) => {
     })
     return (
         <>
-            <div className="day-details-cont">
-                <div className="">
-                    {dataEachDay.length > 0 ? dataEachDay : '...Loading weather data'}
-                </div>
+            <div className="day-details-cont grid grid-cols-1 lg:grid-cols-4 gap-x-6 gap-y-6">
+                {dataEachDay.length > 0 ? dataEachDay : '...Loading weather data'}
             </div>
         </>
     );

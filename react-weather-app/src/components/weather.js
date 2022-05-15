@@ -9,7 +9,7 @@ const Weather = () => {
                     <h2 className='text-lg'> Weather Forecast </h2>
                 </div>
 
-                <div className="flex flex-row weather-container grid grid-cols-2 lg:grid-cols-3 ">
+                <div className="flex flex-row weather-container grid grid-cols-2 lg:grid-cols-3 justify-center align-center">
                     <Sidebar />
                     <WeatherDetails />
                 </div>

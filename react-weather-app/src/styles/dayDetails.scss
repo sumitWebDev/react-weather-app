@@ -1,11 +1,14 @@
 @import "./variables.scss";
 .day-details-cont{
     background-color: #1D212A;
-    height: 100vh;
+    height: 71vh;
     @include mobile{
         height: 100%;
     }
-    
+    .day-details{
+        width: 1240px;
+        margin: 0 auto;
+    }
     padding: 25px;
     .day-details-grid{
         background-color: #2C3947;

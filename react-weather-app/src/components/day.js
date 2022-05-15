@@ -98,9 +98,9 @@ const Day = (props) => {
                             bottom: 30,
                         }}
                     >
-                        <Tooltip />
+                        {/* <Tooltip /> */}
                         <XAxis dataKey="name" />
-                        <YAxis />
+                        {/* <YAxis /> */}
                         {/* <CartesianGrid strokeDasharray="3 3" />
                         <XAxis dataKey="name" />
                         <YAxis />
@@ -110,9 +110,11 @@ const Day = (props) => {
                     </LineChart>
                 </ResponsiveContainer>
             </div>
-                <div className="day-details-cont grid grid-cols-1 lg:grid-cols-4 gap-x-6 gap-y-6">
-
-                    {dataEachDay.length > 0 ? dataEachDay : '...Loading weather data'}
+                <div className="day-details-cont ">
+                     <div className = "day-details grid grid-cols-1 lg:grid-cols-4 gap-x-6 gap-y-6">
+                     {dataEachDay.length > 0 ? dataEachDay : '...Loading weather data'}
+                         </div>   
+                    
                 </div>
         </>
     );

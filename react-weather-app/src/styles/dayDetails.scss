@@ -24,5 +24,18 @@
     }
     .weather-cond-day{
         color: #B8E2E8;
+        text-transform: capitalize;
+    }
+}
+
+//Line chart
+
+.humidity-chart-cont {
+    height: 50vh;
+    background-color: #1D212A;
+    padding-top: 26px;
+    .recharts-wrapper{
+        background-color: #2C3947;
+        padding: 10px;
     }
 }

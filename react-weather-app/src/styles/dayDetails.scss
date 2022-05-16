@@ -15,11 +15,14 @@
         padding: 10px 0;
     }
     .time{
-        color: #1E9EA0;
+        color: grey;
         padding-bottom: 12px;
+        background-color: #2C3947;
+        padding-right: 29px;
     }
     .wi{
         color: #FB5E7A;
+        padding-top: 20px;
     }
     .temp-day{
         color: #1E7F90;
@@ -33,12 +36,18 @@
 
 //Line chart
 
-.humidity-chart-cont {
-    height: 50vh;
+.humidity-chart-cont {   
     background-color: #1D212A;
     padding-top: 26px;
-    .recharts-wrapper{
+    .humidity-chart{
+        height: 41vh;
         background-color: #2C3947;
-        padding: 10px;
+        width: 50%;
+        margin: 0 auto;
+        h2{
+            text-align: center;
+            color: #566574;
+            font-size: 28px;
+        }
     }
 }

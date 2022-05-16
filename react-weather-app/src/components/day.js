@@ -6,7 +6,7 @@ import dict from "../dict";
 import moment from "moment";
 import { useParams } from 'react-router-dom';
 import '../styles/dayDetails.scss'
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer,LabelList} from 'recharts';
 
 
 const Day = (props) => {
@@ -64,11 +64,11 @@ const Day = (props) => {
         if (moment(new Date(params.id * 1000)).format('DD/MM/YYYY') === moment(new Date(day.dt * 1000)).format('DD/MM/YYYY')) {
             return (
 
-                <div key={day.dt} className="flex items-center text-center day-details-grid justify-center">
+                <div key={day.dt} className="flex items-center text-center day-details-grid justify-center grid grid-cols-2">
+                    <h3 className="text-white-700 time">
+                        {moment(new Date(day.dt * 1000)).format("hh:mm A")}
+                    </h3>
                     <div className='day-details-grid-contents'>
-                        <h3 className="text-white-700 time">
-                            {moment(new Date(day.dt * 1000)).format("hh:mm A")}
-                        </h3>
                         <i className={`wi ${dict[day.weather[0].icon]}`}></i>
                         <p className="font-medium temp-day">
                             {day.main.temp}&deg;C
@@ -85,37 +85,40 @@ const Day = (props) => {
     })
     return (
         <>
-            <div className="humidity-chart-cont flex justify-center align-center gap-x-6 gap-y-6">
-                <ResponsiveContainer width="50%" height="100%">
+            <div className="humidity-chart-cont">
+                <div className="humidity-chart">
+                    <h2>Humidity</h2>
+                <ResponsiveContainer width="100%" height="80%">
                     <LineChart
                         width={500}
-                        height={300}
+                        height={150}
                         data={data}
                         margin={{
                             top: 10,
-                            right: 80,
-                            left: 10,
-                            bottom: 30,
+                            right: 50,
+                            left: 50,
+                            bottom: 10,
                         }}
                     >
                         {/* <Tooltip /> */}
                         <XAxis dataKey="name" />
-                        {/* <YAxis /> */}
-                        {/* <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis dataKey="name" />
-                        <YAxis />
-                        <Tooltip />
-                        <Legend /> */}
+                        <Legend />
                         <Line type="monotone" dataKey="pv" stroke="#8884d8" activeDot={{ r: 8 }} />
+                        <LabelList dataKey="amountLabel" style={{ fill: "white" }} />
+
                     </LineChart>
                 </ResponsiveContainer>
-            </div>
-                <div className="day-details-cont ">
-                     <div className = "day-details grid grid-cols-1 lg:grid-cols-4 gap-x-6 gap-y-6">
-                     {dataEachDay.length > 0 ? dataEachDay : '...Loading weather data'}
-                         </div>   
-                    
+
                 </div>
+                
+            </div>
+            <div className="day-details-cont ">
+                
+                <div className="day-details grid grid-cols-1 lg:grid-cols-4 gap-x-6 gap-y-6">
+                    {dataEachDay.length > 0 ? dataEachDay : '...Loading weather data'}
+                </div>
+
+            </div>
         </>
     );
 }

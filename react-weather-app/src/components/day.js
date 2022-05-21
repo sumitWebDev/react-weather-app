@@ -16,52 +16,13 @@ const Day = (props) => {
     useEffect(() => {
         dispatch(FetchWeatherDayAsync());
     }, [dispatch])
-    const data = [
-        {
-            name: 'Page A',
-            uv: 4000,
-            pv: 2400,
-            amt: 2400,
-        },
-        {
-            name: 'Page B',
-            uv: 3000,
-            pv: 1398,
-            amt: 2210,
-        },
-        {
-            name: 'Page C',
-            uv: 2000,
-            pv: 9800,
-            amt: 2290,
-        },
-        {
-            name: 'Page D',
-            uv: 2780,
-            pv: 3908,
-            amt: 2000,
-        },
-        {
-            name: 'Page E',
-            uv: 1890,
-            pv: 4800,
-            amt: 2181,
-        },
-        {
-            name: 'Page F',
-            uv: 2390,
-            pv: 3800,
-            amt: 2500,
-        },
-        {
-            name: 'Page G',
-            uv: 3490,
-            pv: 4300,
-            amt: 2100,
-        },
-    ];
+    let humidityData = [];
+    let maxTempData = [];
+
     let dataEachDay = weatherEachDay.map((day) => {
         if (moment(new Date(params.id * 1000)).format('DD/MM/YYYY') === moment(new Date(day.dt * 1000)).format('DD/MM/YYYY')) {
+            maxTempData.push({ 'max temp': day.main.temp_max, 'time': moment(new Date(day.dt * 1000)).format("hh:mm A") });
+            humidityData.push({ 'humidity': day.main.humidity, 'time': moment(new Date(day.dt * 1000)).format("hh:mm A") });
             return (
 
                 <div key={day.dt} className="flex items-center text-center day-details-grid justify-center grid grid-cols-2">
@@ -83,6 +44,7 @@ const Day = (props) => {
             )
         }
     })
+
     return (
         <>
 
@@ -94,7 +56,7 @@ const Day = (props) => {
                             <LineChart
                                 width={500}
                                 height={150}
-                                data={data}
+                                data={humidityData}
                                 margin={{
                                     top: 10,
                                     right: 50,
@@ -103,21 +65,21 @@ const Day = (props) => {
                                 }}
                             >
                                 {/* <Tooltip /> */}
-                                <XAxis dataKey="name" />
+                                <XAxis dataKey="time" />
                                 <Legend />
-                                <Line type="monotone" dataKey="pv" stroke="#8884d8" activeDot={{ r: 8 }} />
+                                <Line type="monotone" dataKey="humidity" stroke="#8884d8" activeDot={{ r: 8 }} />
                                 <LabelList dataKey="amountLabel" style={{ fill: "white" }} />
 
                             </LineChart>
                         </ResponsiveContainer>
                     </div>
                     <div className="humidity-chart col-span-2">
-                        <h2>Humidity</h2>
+                        <h2>Maximum Temperature</h2>
                         <ResponsiveContainer width="100%" height="80%">
                             <LineChart
                                 width={500}
                                 height={150}
-                                data={data}
+                                data={maxTempData}
                                 margin={{
                                     top: 10,
                                     right: 50,
@@ -126,9 +88,9 @@ const Day = (props) => {
                                 }}
                             >
                                 {/* <Tooltip /> */}
-                                <XAxis dataKey="name" />
+                                <XAxis dataKey="time" />
                                 <Legend />
-                                <Line type="monotone" dataKey="pv" stroke="#8884d8" activeDot={{ r: 8 }} />
+                                <Line type="monotone" dataKey="max temp" stroke="#8884d8" activeDot={{ r: 8 }} />
                                 <LabelList dataKey="amountLabel" style={{ fill: "white" }} />
 
                             </LineChart>

@@ -1,3 +1,4 @@
+@import "./variables.scss";
 .main{
     padding: 10px 0
 }
@@ -16,4 +17,8 @@
 }
 .weather-container{
     box-shadow: 0 0 14px rgb(0 0 0 / 66%);
+    @include desktop{
+        position: relative;
+        top: 15%;
+    }
 }

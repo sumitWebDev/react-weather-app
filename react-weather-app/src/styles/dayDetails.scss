@@ -1,13 +1,18 @@
 @import "./variables.scss";
 .day-details-cont {
   background-color: #1d212a;
-  height: 100vh;
+  @include desktop{
+    height: 100vh;
+  }
+  
   @include mobile {
     height: 100%;
   }
   .day-details {
-    width: 1240px;
-    margin: 0 auto;
+    @include desktop{
+      width: 1240px;
+      margin: 0 auto;
+    }
   }
   padding: 25px;
   .day-details-grid {
@@ -18,7 +23,9 @@
     color: grey;
     padding-bottom: 12px;
     background-color: #2c3947;
-    padding-right: 29px;
+    @include desktop{
+      padding-right: 29px;
+    }
   }
   .wi {
     color: #fb5e7a;
@@ -39,8 +46,10 @@
 .chart-cont {
   background-color: #1d212a;
   padding-top: 26px;
-  width: 1240px;
-  margin: 0 auto;
+  @include desktop{
+    width: 1240px;
+    margin: 0 auto;
+  }
   .humidity-chart {
     height: 30vh;
     background-color: #2c3947;

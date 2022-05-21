@@ -25,7 +25,7 @@ const Day = (props) => {
             humidityData.push({ 'humidity': day.main.humidity, 'time': moment(new Date(day.dt * 1000)).format("hh:mm A") });
             return (
 
-                <div key={day.dt} className="flex items-center text-center day-details-grid justify-center grid grid-cols-2">
+                <div key={day.dt} className="flex items-center text-center day-details-grid justify-center grid grid-cols-1 lg:grid-cols-2">
                     <h3 className="text-white-700 time">
                         {moment(new Date(day.dt * 1000)).format("hh:mm A")}
                     </h3>
@@ -49,8 +49,8 @@ const Day = (props) => {
         <>
 
             <div className="day-details-cont ">
-                <div className="chart-cont grid grid-cols-4 gap-6">
-                    <div className="humidity-chart col-span-2">
+                <div className="chart-cont grid grid-cols-1 lg:grid-cols-4 lg:gap-6 ">
+                    <div className="humidity-chart lg:col-span-2">
                         <h2>Humidity</h2>
                         <ResponsiveContainer width="100%" height="80%">
                             <LineChart
@@ -67,13 +67,13 @@ const Day = (props) => {
                                 {/* <Tooltip /> */}
                                 <XAxis dataKey="time" />
                                 <Legend />
-                                <Line type="monotone" dataKey="humidity" stroke="#8884d8" activeDot={{ r: 8 }} />
+                                <Line type="monotone" dataKey="humidity" stroke="#8884d8" activeDot={{ r: 8 }} dot={false}/>
                                 <LabelList dataKey="amountLabel" style={{ fill: "white" }} />
 
                             </LineChart>
                         </ResponsiveContainer>
                     </div>
-                    <div className="humidity-chart col-span-2">
+                    <div className="humidity-chart lg:col-span-2">
                         <h2>Maximum Temperature</h2>
                         <ResponsiveContainer width="100%" height="80%">
                             <LineChart
@@ -90,7 +90,7 @@ const Day = (props) => {
                                 {/* <Tooltip /> */}
                                 <XAxis dataKey="time" />
                                 <Legend />
-                                <Line type="monotone" dataKey="max temp" stroke="#8884d8" activeDot={{ r: 8 }} />
+                                <Line type="monotone" dataKey="max temp" stroke="#8884d8" activeDot={{ r: 8 }} dot={false}/>
                                 <LabelList dataKey="amountLabel" style={{ fill: "white" }} />
 
                             </LineChart>

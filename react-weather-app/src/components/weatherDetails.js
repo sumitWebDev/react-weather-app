@@ -34,7 +34,7 @@ export default function WeatherDetails(props) {
   let durationOfDay = getDurationOfTheDay(parseInt(moment().format('H')));
   //Iterating daily weather objects
   dailyWeather = weatherDetailsList.map((weather) => {
-    if (weatherCount < 7 && (moment(new Date()).format("DD/MM/YYYY") !== moment(new Date(weather.dt * 1000)).format('DD/MM/YYYY'))) {
+    if (weatherCount < 5 && (moment(new Date()).format("DD/MM/YYYY") !== moment(new Date(weather.dt * 1000)).format('DD/MM/YYYY'))) {
       weatherCount++;
       return (
         <Link to={`/${weather.dt}`} key={weather.dt} className="group">

@@ -67,7 +67,7 @@ const Day = (props) => {
                                 {/* <Tooltip /> */}
                                 <XAxis dataKey="time" />
                                 <Legend />
-                                <Line type="monotone" dataKey="humidity" stroke="#8884d8" activeDot={{ r: 8 }} dot={false}/>
+                                <Line type="monotone" dataKey="humidity" stroke="#D8D8F3" activeDot={{ r: 8 }} dot={false}/>
                                 <LabelList dataKey="amountLabel" style={{ fill: "white" }} />
 
                             </LineChart>
@@ -90,7 +90,7 @@ const Day = (props) => {
                                 {/* <Tooltip /> */}
                                 <XAxis dataKey="time" />
                                 <Legend />
-                                <Line type="monotone" dataKey="max temp" stroke="#8884d8" activeDot={{ r: 8 }} dot={false}/>
+                                <Line type="monotone" dataKey="max temp" stroke="#D8D8F3" activeDot={{ r: 8 }} dot={false}/>
                                 <LabelList dataKey="amountLabel" style={{ fill: "white" }} />
 
                             </LineChart>

@@ -69,7 +69,7 @@ import usePlacesAutocomplete, {
   
     return (
       <div className="search-wrapper">
-        <label for="search" class='sr-only'>Search Bar</label><br></br>
+        <label htmlFor="search" className='sr-only'>Search Bar</label><br></br>
         <input
           id="search"
           value={value}

@@ -61,7 +61,7 @@ export default function WeatherDetails(props) {
   return (
     <>
       <main className="main transition-all duration-150 ease-in col-span-2">
-        <div className="grid grid-cols-2 md:grid-cols-3 ">
+        <div className="grid grid-cols-2 md:grid-cols-3 bg-gradient-to-t  from-light-green to-green">
           {dailyWeather.length > 0 ? dailyWeather : 'Loading...'}
         </div>
       </main>

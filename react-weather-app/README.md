@@ -9,6 +9,5 @@
 
 </p>
 
-
 # Steps to run React weather app
 ### `npm start`

@@ -4,7 +4,8 @@ const initialState = {
     weatherDetailsList: [],
     weatherEachDay: [],
     weatherToday:[],
-    presentLocation:''
+    presentLocation:'',
+    presentCoords:[]
 };
 
 
@@ -57,6 +58,20 @@ export function presentLocation(
 ) {
     switch (action.type) {
         case "FETCH_PRESENT_LOCATION": {
+            return action.payload;
+        }
+        default:
+            return state
+    }
+}
+
+//Reducer to fetch present coords
+export function presentCoords(
+    state = initialState.presentCoords,
+    action
+) {
+    switch (action.type) {  
+        case "FETCH_PRESENT_COORDS": {
             return action.payload;
         }
         default:

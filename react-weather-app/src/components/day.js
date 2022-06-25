@@ -11,11 +11,11 @@ import { LineChart, Line, Legend, XAxis, ResponsiveContainer, LabelList } from '
 
 const Day = (props) => {
     const dispatch = useDispatch();
-    const { weatherEachDay } = useSelector((store) => store);
+    const { weatherEachDay, presentCoords } = useSelector((store) => store);
     const params = useParams();
     useEffect(() => {
-        dispatch(FetchWeatherDayAsync());
-    }, [dispatch])
+        dispatch(FetchWeatherDayAsync(presentCoords));
+    }, [dispatch,presentCoords])
     let humidityData = [];
     let maxTempData = [];
 

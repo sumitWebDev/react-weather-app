@@ -32,5 +32,5 @@
 2. `npm run start`
 
 #### Present Issues as observed
-1. Loading slowly
+1. Adding loaders on loading results
 2. Going back from weather forecast in 3 hours  Page gives error

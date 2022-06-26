@@ -4,6 +4,9 @@
 <img width="1667" alt="Screenshot 2022-05-31 at 8 13 11 PM" src="https://user-images.githubusercontent.com/23627930/171202128-d6dfd5b9-7c97-4d67-bbb1-6fb278834a8c.png">
 <img width="1671" alt="Screenshot 2022-05-31 at 8 13 19 PM" src="https://user-images.githubusercontent.com/23627930/171202323-14c49d83-271f-40fa-943c-975fb11aec7b.png">
 
+#### Demo Link 
+- https://sumitwebdev.github.io/react-weather-app/1656327600 
+
 #### Project story:
 * A two page weather app developed using React, Redux, Redux-thunk, Tailwind CSS.
 * On page load, user can see their default location and weather updates for the next five days.
@@ -29,4 +32,4 @@
 2. `npm run start`
 
 #### Present Issues as observed
-1. Loading slowly in some instances
+1. Loading slowly

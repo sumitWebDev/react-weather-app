@@ -30,7 +30,7 @@ const Sidebar = (props) => {
                 <h3 className="mt-4 text-lg current-date">           
                 {weatherDate}  
                 </h3>        
-                    <Search />               
+                    <Search date={(weatherToday.length > 0) ?  weatherToday[0].dt : ''}/>               
                     <div className= "sidebar-image-icon" >
                     <i className={`wi ${dict[weatherIcon]}` }></i>
                     </div>

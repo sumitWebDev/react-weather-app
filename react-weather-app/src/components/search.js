@@ -6,7 +6,7 @@ import usePlacesAutocomplete, {
   import { useDispatch } from "react-redux";
   import '../styles/search.scss'
   import {getCurrentPosition, FetchWeatherDetailsAsync} from '../actions/weather.actions'
-    const Search = () => {
+    const Search = (props) => {
     const {
       ready,
       value,
@@ -43,7 +43,7 @@ import usePlacesAutocomplete, {
           .then((results) => getLatLng(results[0]))
           .then(({ lat, lng }) => {
             dispatch(getCurrentPosition({'coords':{ 'latitude' : lat, 'longitude': lng }}))
-            dispatch(FetchWeatherDetailsAsync({'coords':{ 'latitude' : lat, 'longitude': lng }}))
+            dispatch(FetchWeatherDetailsAsync({'coords':{ 'latitude' : lat, 'longitude': lng },'date':props.date}))
             console.log("📍 Coordinates: ", { lat, lng });
           })
           .catch((error) => {

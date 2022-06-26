@@ -5,7 +5,7 @@
 <img width="1671" alt="Screenshot 2022-05-31 at 8 13 19 PM" src="https://user-images.githubusercontent.com/23627930/171202323-14c49d83-271f-40fa-943c-975fb11aec7b.png">
 
 #### Demo Link 
-- https://sumitwebdev.github.io/react-weather-app/1656327600 
+- https://sumitwebdev.github.io/react-weather-app/
 
 #### Project story:
 * A two page weather app developed using React, Redux, Redux-thunk, Tailwind CSS.
@@ -33,3 +33,4 @@
 
 #### Present Issues as observed
 1. Loading slowly
+2. Going back from weather forecast in 3 hours  Page gives error

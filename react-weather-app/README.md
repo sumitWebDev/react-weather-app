@@ -22,6 +22,7 @@
 
 #### API Used
 1. Open weather app
-2. 
+2. Google Geocode Api 
 #### Steps to run React weather app
-### `npm start`
+1. `npm install`
+2. `npm run start`

@@ -23,7 +23,7 @@ export function getPresentLocationName(locationData) {
 
 //Action to fetch present location name,country
 export function getPresentCoords(latitude,longitude) {
-    return { type: "FETCH_PRESENT_COORDS", payload: {'coords':{'latitude': latitude, 'longitude' : longitude} }};
+    return { type: "FETCH_PRESENT_COORDS", payload: [{'coords':{'latitude': latitude, 'longitude' : longitude} }]};
 }
 
 //Action to fetch weather datas using Redux Thunk
@@ -45,7 +45,7 @@ export function FetchWeatherDetailsAsync(searched_position) {
 export function FetchWeatherDayAsync(searched_position) {
     return (dispatch) => {
         navigator.geolocation.getCurrentPosition(function (position) {
-            let position_final = searched_position.length > 0 ? searched_position : position
+            let position_final = (searched_position.length > 0)? searched_position[0] : position
             axios
                 .get(`https://api.openweathermap.org/data/2.5/forecast?lat=${position_final.coords.latitude}&lon=${position_final.coords.longitude}&appid=7fa8ec92190927efb89d316589df0a71&units=metric`)
                 .then((response) => {

@@ -43,7 +43,7 @@ import usePlacesAutocomplete, {
           .then((results) => getLatLng(results[0]))
           .then(({ lat, lng }) => {
             dispatch(getCurrentPosition({'coords':{ 'latitude' : lat, 'longitude': lng }}))
-            dispatch(FetchWeatherDetailsAsync({'coords':{ 'latitude' : lat, 'longitude': lng },'date':props.date}))
+            dispatch(FetchWeatherDetailsAsync({'coords':{ 'latitude' : lat, 'longitude': lng }}))
             console.log("📍 Coordinates: ", { lat, lng });
           })
           .catch((error) => {

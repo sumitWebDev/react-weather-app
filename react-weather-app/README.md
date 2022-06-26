@@ -23,6 +23,10 @@
 #### API Used
 1. Open weather app
 2. Google Geocode Api 
+
 #### Steps to run React weather app
 1. `npm install`
 2. `npm run start`
+
+#### Present Issues as observed
+1. Loading slowly in some instances

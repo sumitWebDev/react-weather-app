@@ -15,7 +15,7 @@
 * Apart from that user can also visualize the humidity line chart and max temperature line chart to understand the parameter in the entire day.
 
 #### Tech stack 
-1. React
+1. React ^17.0.2
 2. Redux
 3. Redux-thunk
 4. Tailwind CSS

@@ -9,7 +9,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Weather />} />
         <Route path='/:id' element={<Day />} />
-        <Route path='/*' element={<DefaultPage />} />
+        // <Route path='/*' element={<DefaultPage />} />
       </Routes>
     </>
   );

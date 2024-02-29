@@ -8,7 +8,7 @@ function App() {
     <>
       <Routes>
         <Route path='/' element={<Weather />} />
-        <Route path='/react-weather-app/:id' element={<Day />} />
+        <Route path='/:id' element={<Day />} />
         <Route path='/*' element={<DefaultPage />} />
       </Routes>
     </>

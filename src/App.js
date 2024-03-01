@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path='/abc' element={<Weather />} />
+        <Route path='/react-weather-app' element={<Weather />} />
         <Route path='/:id' element={<Day />} />
         // <Route path='/*' element={<DefaultPage />} />
       </Routes>

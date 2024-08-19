@@ -43,6 +43,7 @@ const Day = (props) => {
 
             )
         }
+        else return ''
     })
 
     return (
